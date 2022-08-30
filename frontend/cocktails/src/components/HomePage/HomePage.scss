@@ -1,0 +1,11 @@
+.home-link {
+  height: 400px;
+  margin: 70px;
+}
+
+.home-link:hover {
+  filter: drop-shadow(0 0 2em #646cffaa);
+}
+.home-link.react:hover {
+  filter: drop-shadow(0 0 2em #61dafbaa);
+}
