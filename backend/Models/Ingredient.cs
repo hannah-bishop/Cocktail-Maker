@@ -6,7 +6,7 @@ namespace Cocktails.Models
 
         public string? Name {  get; set; }
 
-        public ICollection<AllergenIngredient>? AllergenIngredient { get; set; }
+        public ICollection<AllergenIngredient> AllergenIngredient { get; set; }
 
         public ICollection<CocktailIngredient>? CocktailIngredient { get; set; }
 

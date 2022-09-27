@@ -13,5 +13,10 @@ namespace Cocktails.Services
         {
             return _ingredientsRepo.Create(request);
         }
+
+        public IEnumerable<Ingredient> FetchAllIngredients()
+        {
+            return _ingredientsRepo.FetchAllIngredients();
+        }
     }
 }

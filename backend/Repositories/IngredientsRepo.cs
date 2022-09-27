@@ -38,5 +38,10 @@ namespace Cocktails.Repositories
             _context.SaveChanges();
             return newIngredient;
         }
+
+        public IEnumerable<Ingredient> FetchAllIngredients() 
+        {
+            return _context.Ingredients;
+        }
     }
 }

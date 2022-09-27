@@ -1,4 +1,4 @@
-const baseUrl = "https://localhost:7003";
+const baseUrl = "http://localhost:5140";
 
 export interface CocktailResponse {
   id: number;
@@ -24,9 +24,32 @@ export interface CocktailListResponse {
   cocktails: CocktailResponse[];
 }
 
+export interface IngredientResponse {
+  id: number;
+  name: string;
+  availability: number;
+}
+
+export interface IngredientListResponse {
+  ingredients: IngredientResponse[];
+}
+
 export async function fetchCocktailByIngredient(
   id: number
 ): Promise<CocktailListResponse> {
-  const response = await fetch(`${baseUrl}/${id}`);
+  const response = await fetch(`${baseUrl}/${id}`, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
+  return await response.json();
+}
+
+export async function fetchAllIngredients(): Promise<IngredientListResponse> {
+  const response = await fetch(`${baseUrl}/ingredients`, {
+    headers: {
+      "Access-Control-Allow-Origin": "*",
+    },
+  });
   return await response.json();
 }

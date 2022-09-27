@@ -1,6 +1,8 @@
 using Microsoft.AspNetCore.Mvc;
 using Cocktails.Services;
 using Cocktails.Models.Request;
+using static Cocktails.Models.Response.IngredientsListItemResponse;
+using Microsoft.AspNetCore.Cors;
 
 namespace Cocktails.Controllers 
 {
@@ -27,7 +29,17 @@ namespace Cocktails.Controllers
             return Created("/api", newIngredient);
 
         }
-    }
 
+        [EnableCors("MyCorsPolicy")]
+        [HttpGet("")]
+        public ActionResult<IngredientListResponse> FetchAllIngredients() 
+        {
+          
+            var ingredientList = _ingredients.FetchAllIngredients();
+
+            return new IngredientListResponse(ingredientList);
+
+        }
+    }
 
 }
